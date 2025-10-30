@@ -1,0 +1,23 @@
+<idea-plugin>
+  <id>dev.viktor.randomwisdom</id>
+  <name>Random Wisdom</name>
+  <version>1.0.0</version>
+  <vendor email="haslavskayaalina@yandex.ru">Алина Хаславская</vendor>
+
+  <depends>com.intellij.modules.clion</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <notificationGroup id="RandomWisdom" displayType="BALLOON" isLogByDefault="false"/>
+    <postStartupActivity implementation="dev.viktor.randomwisdom.RandomWisdomStartup"/>
+  </extensions>
+
+  <actions>
+    <group id="RandomWisdom.Group" text="Random Wisdom" description="Random programmer wisdom" popup="true">
+      <add-to-group group-id="ToolsMenu" anchor="last"/>
+      <action id="RandomWisdom.ToggleAction"
+              class="dev.viktor.randomwisdom.ToggleWisdomAction"
+              text="Toggle Random Wisdom"
+              description="Enable/disable wisdom on save"/>
+    </group>
+  </actions>
+</idea-plugin>

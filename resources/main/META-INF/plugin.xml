@@ -1,0 +1,26 @@
+<idea-plugin>
+  <idea-version since-build="252" until-build="252.*" />
+  <change-notes><![CDATA[<ul>
+  <li>Первый релиз плагина Random Wisdom для CLion 2025.2.1.</li>
+  <li>Показывает случайные «мудрости» при сохранении файла.</li>
+  <li>Добавлен переключатель: Tools → Random Wisdom → Toggle Random Wisdom.</li>
+  <li>Совместимость: Gradle 8.14.1, Kotlin 2.2.0, JVM target 21.</li>
+  <li>Отключено инструментирование кода (instrumentCode=false) для стабильной сборки.</li>
+  <li>Исправлена ошибка сборки buildSearchableOptions на CLion 2025.2.x.</li>
+</ul>]]></change-notes>
+  <id>dev.viktor.randomwisdom</id>
+  <name>Random Wisdom</name>
+  <version>1.0.0</version>
+  <vendor email="you@example.com">Алиныч</vendor>
+  <depends>com.intellij.modules.clion</depends>
+  <extensions defaultExtensionNs="com.intellij">
+    <notificationGroup id="RandomWisdom" displayType="BALLOON" isLogByDefault="false" />
+    <postStartupActivity implementation="dev.viktor.randomwisdom.RandomWisdomStartup" />
+  </extensions>
+  <actions>
+    <group id="RandomWisdom.Group" text="Random Wisdom" description="Random programmer wisdom" popup="true">
+      <add-to-group group-id="ToolsMenu" anchor="last" />
+      <action id="RandomWisdom.ToggleAction" class="dev.viktor.randomwisdom.ToggleWisdomAction" text="Toggle Random Wisdom" description="Enable/disable wisdom on save" />
+    </group>
+  </actions>
+</idea-plugin>
